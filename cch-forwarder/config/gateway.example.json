@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "mode": { "strict": true, "allowRegexRoutes": false },
+  "providers": {
+    "openai_main": {
+      "name": "OpenAI Main",
+      "type": "codex",
+      "baseUrl": "https://api.openai.com",
+      "apiKey": "REPLACE_ME",
+      "enabled": true,
+      "endpoints": {
+        "responsesPath": "/v1/responses",
+        "chatCompletionsPath": "/v1/chat/completions"
+      },
+      "headers": {}
+    },
+    "anthropic_main": {
+      "name": "Anthropic Main",
+      "type": "claude",
+      "baseUrl": "https://api.anthropic.com",
+      "apiKey": "REPLACE_ME",
+      "enabled": true,
+      "endpoints": { "messagesPath": "/v1/messages" },
+      "headers": {}
+    }
+  },
+  "models": {
+    "gpt52-low": {
+      "provider": "openai_main",
+      "upstreamModel": "gpt-5.2",
+      "options": { "reasoningEffort": "low" }
+    },
+    "haiku": {
+      "provider": "anthropic_main",
+      "upstreamModel": "claude-haiku-4-5-20251001",
+      "options": {}
+    }
+  },
+  "routes": [
+    {
+      "id": "route_haiku_passthrough",
+      "enabled": true,
+      "priority": 200,
+      "match": { "model": "claude-haiku-4-5-20251001", "protocol": "claude" },
+      "targetModel": "haiku"
+    }
+  ]
+}

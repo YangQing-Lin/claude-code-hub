@@ -1,0 +1,7 @@
+node_modules
+.next
+.turbo
+
+# local runtime config (keep gateway.example.json tracked)
+config/gateway.json
+

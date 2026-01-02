@@ -1,0 +1,32 @@
+{
+  "name": "cch-forwarder",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 13510",
+    "build": "next build",
+    "start": "next start -p 13510",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "e2e:protocol": "node scripts/e2e-protocol-adaptation.mjs"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "next-themes": "^0.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.3.0",
+    "tw-animate-css": "^1.3.8",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.522.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@tailwindcss/postcss": "^4.1.13",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.7.0"
+  }
+}
